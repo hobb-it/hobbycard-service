@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.UUID;
 
 public interface HobbyCardRepository extends CrudRepository<HobbyCard, UUID> {
-    Iterable<HobbyCard> findByUser(UUID userId);
-    Iterable<HobbyCard> findByCategory(UUID categoryId);
-    Iterable<HobbyCard> findByUserAndCategory(UUID userId, UUID categoryId);
+    Iterable<HobbyCard> findByUsername(String username);
+    Iterable<HobbyCard> findByCategoryName(String categoryName);
+    Iterable<HobbyCard> findByUsernameAndCategoryName(String username, String categoryName);
 }
