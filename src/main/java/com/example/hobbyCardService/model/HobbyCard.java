@@ -22,9 +22,9 @@ public class HobbyCard {
     @Column(name="description")
     private String description;
 
-    @Column(name="category")
-    private UUID category;
+    @Column(name="categoryName")
+    private String categoryName;
 
-    @Column(name="user")
-    private UUID user;
+    @Column(name="username")
+    private String username;
 }
