@@ -24,20 +24,16 @@ public class HobbyCardController {
     @GetMapping("/all")
     @CrossOrigin
     public Iterable<HobbyCard> getHobbyCards(
-            @RequestParam(value="userId", required=false) String userId,
-            @RequestParam(value="categoryId", required=false) String categoryId
+            @RequestParam(value="username", required=false) String username,
+            @RequestParam(value="categoryName", required=false) String categoryName
     ) {
         List<HobbyCard> hobbyCards = new ArrayList<>();
-        if (userId != null && categoryId != null) {
-            UUID _userId = UUID.fromString(userId);
-            UUID _categoryId = UUID.fromString(categoryId);
-            hobbyCardRepository.findByUserAndCategory(_userId, _categoryId).forEach(hobbyCards::add);
-        } else if (categoryId != null) {
-            UUID _categoryId = UUID.fromString(categoryId);
-            hobbyCardRepository.findByCategory(_categoryId).forEach(hobbyCards::add);
-        } else if (userId != null) {
-            UUID _userId = UUID.fromString(userId);
-            hobbyCardRepository.findByUser(_userId).forEach(hobbyCards::add);
+        if (username != null && categoryName != null) {
+            hobbyCardRepository.findByUsernameAndCategoryName(username, categoryName).forEach(hobbyCards::add);
+        } else if (categoryName != null) {
+            hobbyCardRepository.findByCategoryName(categoryName).forEach(hobbyCards::add);
+        } else if (username != null) {
+            hobbyCardRepository.findByUsername(username).forEach(hobbyCards::add);
         } else {
             hobbyCardRepository.findAll().forEach(hobbyCards::add);
         }
