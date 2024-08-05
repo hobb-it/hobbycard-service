@@ -21,7 +21,7 @@ WORKDIR /app
 COPY --from=build /app/target/hobbycard-service-0.0.1-SNAPSHOT.jar /app/hobbycard-service.jar
 
 # Opzionale: se hai configurazioni esterne o file di properties che vuoi includere
-# COPY env_hobbyCard.properties /app/
+# COPY env.properties /app/
 
 # Espone la porta su cui gira il microservizio
 EXPOSE 8081
