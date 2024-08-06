@@ -19,10 +19,13 @@ public class HobbyCard {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column(name="title")
+    private String title;
+
     @Column(name="description", length=1500)
     private String description;
 
-    @Column(name="categoryName")
+    @Column(name="categoryName", nullable = false)
     private String categoryName;
 
     @Column(name="username")
